@@ -16,10 +16,14 @@ int main(){
     assert(logint(10, 100) == 2);
     assert(logint(10, 141) == 2);
     assert(logint(10, 999) == 2);
-    assert(logint_ceil(10, 141) == 3);
-    assert(logint_ceil(10, 999) == 3);
     assert(logint(10, 1000) == 3);
 
+    assert(logint_ceil(10, 1) == 0);
+    assert(logint_ceil(10, 4) == 1);
+    assert(logint_ceil(10, 100) == 2);
+    assert(logint_ceil(10, 141) == 3);
+    assert(logint_ceil(10, 999) == 3);
+    assert(logint_ceil(10, 1000) == 3);
 
     assert(hyperfloor(10, 100) == 100);
     assert(hyperfloor(10, 141) == 100);
@@ -32,7 +36,7 @@ int main(){
     assert(lower_pow2(5) == 4);
     assert(lower_pow2(7) == 4);
     assert(lower_pow2(8) == 8);
-    
+
     assert(upper_pow2(4) == 4);
     assert(upper_pow2(5) == 8);
     assert(upper_pow2(7) == 8);

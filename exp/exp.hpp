@@ -15,6 +15,8 @@ int64_t powint(int64_t a, int64_t N) {
 }
 // base**i <= Nを満たす最大のiを返す。
 int64_t logint(int64_t base, int64_t N) {
+    assert(N != 0);
+    assert(base != 0);
     int64_t ans = 0;
     while (N >= base) {
         N /= base;
@@ -24,6 +26,8 @@ int64_t logint(int64_t base, int64_t N) {
 }
 // N <= base**iを満たす最小のiを返す。
 int64_t logint_ceil(int64_t base, int64_t N) {
+    assert(N != 0);
+    assert(base != 0);
     int64_t ans = 0;
     bool is_divisible = true;
     while (N >= base) {
@@ -31,6 +35,7 @@ int64_t logint_ceil(int64_t base, int64_t N) {
         N /= base;
         ans++;
     }
+    if (N % base != 0 and N != 1) { is_divisible = false; }
     return ans + ((is_divisible) ? 0 : 1);
 }
 // base**i <= Nを満たす最大のiに対して、base**iを返す。
