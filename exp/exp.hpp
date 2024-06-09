@@ -28,15 +28,8 @@ int64_t logint(int64_t base, int64_t N) {
 int64_t logint_ceil(int64_t base, int64_t N) {
     assert(N != 0);
     assert(base != 0);
-    int64_t ans = 0;
-    bool is_divisible = true;
-    while (N >= base) {
-        if (N % base != 0) { is_divisible = false; }
-        N /= base;
-        ans++;
-    }
-    if (N % base != 0 and N != 1) { is_divisible = false; }
-    return ans + ((is_divisible) ? 0 : 1);
+    if (N == 1) { return 0; }
+    return logint(base, N-1) + 1;
 }
 // base**i <= Nを満たす最大のiに対して、base**iを返す。
 int64_t hyperfloor(int64_t base, int64_t N) { return powint(base, logint(base, N));}
